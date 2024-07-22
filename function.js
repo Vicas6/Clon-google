@@ -1,4 +1,4 @@
-let input = document.querySelectorAll('.main-input-container, searchInput');
+let input = document.querySelectorAll('.main-input-container, #searchInput');
 let overlay = document.getElementById('overlay');
 let main = document.querySelector('main');
 let counter = 0;
@@ -8,12 +8,6 @@ let logoImage = document.getElementById('logoImage');
 let originalLogoImageSrc = '/Asset/logo-google.png';
 let timer;
 const smallScreenQuery = window.matchMedia('(max-width: 425px)');
-
-// Verificar si la pantalla es pequeña y salir si es así
-if (smallScreenQuery.matches) {
-    // Salir del script si la pantalla es pequeña
-    return;
-}
 
 let predefinedMessages = [
     'Nos encontramos a alguien que no le gusta seguir indicaciones ¿no? no cierres el mensaje.',
@@ -255,8 +249,8 @@ function handleMobileChange(e) {
     }
 }
 
-// Agregar un listener para cambios en el media query
-mobileQuery.addListener(handleMobileChange);
+// Agregar un listener para cambios en el media query usando addEventListener
+mobileQuery.addEventListener('change', handleMobileChange);
 
 // Ejecutar la función para aplicar cambios de inmediato si la pantalla ya es móvil
 handleMobileChange(mobileQuery);
